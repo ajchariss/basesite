@@ -1,12 +1,33 @@
 /** =======================
-  * CONTENTS 
-  *
-  * BASE STYLES
-  * Variables ...................... Custom CSS properties.
-  * Utility Margin/Padding Classes ........ Section/Block margin and padding.
-  * Typography .................... @fontfaces, base text and vertical rhythm setup.
- 
-  ========================= */
+* CONTENTS 
+*
+* BASE STYLES
+* Variables ...................... Custom CSS properties.
+* Utility Margin/Padding Classes ........ Section/Block margin and padding.
+* Typography .................... @fontfaces, base text and vertical rhythm setup.
+*
+* Objects
+* Icons.................Icon Elements.
+* Buttons...............Button elements.
+* Tables................Table Styles.
+* Forms.................Form Elements.
+* Sliders/Carousels.....Sliders/Carousels.
+* Tabs..................Tabbed content.
+* Social Share..........Social share buttons
+*
+* UI
+* Page head.............The main page header.
+* Navigation............Navigation elements.
+* Masthead..............Page title/image/slideshow header block.
+* Breadcrumbs...........Breadcrumbs.
+* Front Page............Sections/Blocks for homepage.
+* Pages.................Sections/Blocks for pages and templates.
+* Posts.................Post content for loop on blog homepage, search page, archives, etc.
+* Pagination............Pagination.
+* Sidebar...............Sidebar elements.
+* Page footer...........The main page footer.
+* Print.................Display for printing.
+========================= */
 
 /**
   * Variables
@@ -120,10 +141,17 @@ a:hover {
 }
 
 @media(min-width: 1025px) {
+	body {
+		font-size: 16px;
+	}
+
     .page-body { 
     }
 }
 
+ /** ===============================
+        OBJECTS 
+  ================================= */
 
 /**
   * Buttons
@@ -151,11 +179,7 @@ a:hover {
 	}
 }
 
-@media (min-width: 1025px) {
-	body {
-		font-size: 16px;
-	}
-}
+
 
 /**
  * Tables
@@ -259,6 +283,24 @@ input.wpcf7-not-valid,
 .wpcf7-not-valid .selectric {
 
 }
+
+ /**
+ * Sliders/Carousels
+ */
+
+
+ /**
+ * Tabs
+ */
+
+
+ /**
+ * Social Shares
+ */
+
+ /** ===============================
+        UI 
+  ================================= */ 
 
 /**
   * Page header
@@ -588,6 +630,22 @@ input.wpcf7-not-valid,
 
 
 /**
+ * Sidebar, Widgets
+ */
+
+ .page-sidebar {}
+
+ /* widgets */
+ .widget {}
+
+ .widget ul {}
+
+ .widget li {}
+
+ .widget a {}
+
+
+/**
  * Pagination
  */
 
@@ -627,21 +685,6 @@ input.wpcf7-not-valid,
         background-color: #1F7940;
         color: #fff;
     }
-
-/**
- * Sidebar, Widgets
- */
-
-.page-sidebar {}
-
-    /* widgets */
-    .widget {}
-
-    .widget ul {}
-
-    .widget li {}
-
-    .widget a {}
 
 
 /**

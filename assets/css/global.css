@@ -1,12 +1,22 @@
 /**
- * CONTENTS
- *  Variables .............. Custom CSS properties.
- *  Document ............... Box-sizing and document (e.g. <html>, <body>) setup.
- *  Media .................. WP specific img aligns and iframe styling.
- * COMPONENTS
- *  Clearfix................ Properly clear floats.
- *  Wrappers................ Wrapping and constraining elements.
- *  Grid System............. Bootstrap based grid.
+* CONTENTS
+*
+* BASE
+* Box-sizing............Better default `box-sizing`.
+* Variables.............Custom CSS properties.
+* Document..............Box-sizing and document (e.g. <html>, <body>) setup.
+* Media.................WP specific img aligns and iframe styling.
+*
+* COMPONENTS
+* Clearfix.............. Properly clear floats.
+* Wrappers.............. Wrapping and constraining elements.
+* Grid System........... Bootstrap based grid.
+*
+* TRUMPS
+* Hiding................Make items invisible/hidden.
+* Text alignment........Align text.
+* Screen Readers........Display for screen readers.
+* Print.................Display for printing.
 */
 
 /** ===============================
@@ -37,7 +47,8 @@
 */
 
 * {
-    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
@@ -152,14 +163,6 @@ img {
 .will-lazyload.lazyloaded {
     opacity: 1;
 }
-
-/**
- * Text alignment
- */
-
- .text-left     { text-align:left  !important; }
- .text-center   { text-align:center!important; }
- .text-right    { text-align:right !important; }
 
  /** ===============================
         COMPONENTS 
@@ -457,21 +460,37 @@ img {
     .col-xl-offset-11 { margin-left: var(--col-width-11); }
 }
 
+
+ /** ===============================
+        TRUMPS 
+  ================================= */
+
+@-ms-viewport {
+	width: device-width;
+}
+
 /**
  * Hiding
  */
 
-.hide,
-.hidden-xxs-up { display: none !important; }
-.hidden       { display: none !important; visibility: hidden !important; }
-.invisible    { visibility: hidden !important; }
-.text-hide    {
-    font: 0/0 a;
-    color: transparent;
-    text-shadow: none;
-    background-color: transparent;
-    border: 0;
-}
+ .hide,
+ .hidden-xxs-up {
+     display: none !important;
+ }
+ .hidden {
+     display: none !important;
+     visibility: hidden !important;
+ }
+ .invisible {
+     visibility: hidden !important;
+ }
+ .text-hide {
+     font: 0/0 a;
+     color: transparent;
+     text-shadow: none;
+     background-color: transparent;
+     border: 0;
+ } 
 
 @media (max-width: 599px) {
     .hidden-xxs { display: none !important; }
@@ -517,6 +536,43 @@ img {
     .hidden-lg { display: none !important; }
 }
 
+/**
+  * Text alignment
+  */
+
+.text-left {
+	text-align: left !important;
+}
+.text-center {
+	text-align: center !important;
+}
+.text-right {
+	text-align: right !important;
+}
+/**
+  * Screen Readers
+  */
+
+  .sr-only,
+  .screen-reader-text {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+  }
+  .sr-only-focusable:active,
+  .sr-only-focusable:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+  }
 
 /**
   * Print CSS
@@ -652,3 +708,9 @@ img {
     }
 
 }
+
+/*******************************
+  * No CSS Should be added below the above TRUMPS section.
+  *
+  * Please add all additional CSS above the TRUMPS section above.
+  */
