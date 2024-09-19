@@ -21,11 +21,7 @@ var BASE = ( function( BASE, $ ) {
 			this.bind();
 		},
 
-		bind: function(){
-            $('.menu-btn').click( function() {
-                $(this).toggleClass('close');
-                $('.page-header .nav-primary').fadeToggle();
-            });
+		bind: function(){ 
 
             $(".icon-search-btn").on('click', function(e) {
                 e.preventDefault();
@@ -39,7 +35,7 @@ var BASE = ( function( BASE, $ ) {
 
     BASE.MobileMenu = {
         init: function() {
-            $( '.nav-primary li.menu-item-has-children > a' ).after( '<span class="sub-menu-toggle icon-chevron-small-down hidden-md-up"></span>' );
+            $( '.nav-primary li.menu-item-has-children > a' ).after( '<span class="sub-menu-toggle icon-chevron-down"></span>' );
             $( '.sub-menu-toggle' ).click( function() {
                 var $this = $(this),
                     $parent = $this.closest( 'li' ),
@@ -48,9 +44,9 @@ var BASE = ( function( BASE, $ ) {
                 $this.toggleClass( 'js-toggled' );
             });
 
-            $('.menu-btn').click( function() {
-                $(this).toggleClass('icon-close');
-                $('.page-header .nav-primary').fadeToggle();
+            $('.toggle-menu').click( function() {
+                $(this).toggleClass('toggle-menu--close');
+                $('.page-header .nav-primary').slideToggle();
             });
 
         }

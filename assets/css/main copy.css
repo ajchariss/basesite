@@ -35,8 +35,7 @@
 :root { 
     --section-margin: 20px;
     --color-primary: #000;
-    --color-secondary: #CD1B20;
-    --color-tertiary: #fff;
+    --color-secondary: #fff;
     --color-body: #495057;
 }
 
@@ -159,11 +158,11 @@ hr {
 
 a {
 	word-break: break-word;
-    color: var(--color-secondary);
+    color: #CD1B20;
 }
 
 a:hover {
-     
+    opacity: .5;
 }
 
 @media(min-width: 1025px) {
@@ -185,108 +184,11 @@ a:hover {
     display: inline-block;
     width: 1em;
     height: 1em;
-    stroke-width: 0;
+    stroke-width: 1;
     stroke: currentColor;
     fill: currentColor;
   }
 
-  @font-face {
-    font-family: 'icomoon';
-    src:  url('../icons/icomoon.eot?r7hq1f');
-    src:  url('../icons/icomoon.eot?r7hq1f#iefix') format('embedded-opentype'),
-      url('../icons/icomoon.ttf?r7hq1f') format('truetype'),
-      url('../icons/icomoon.woff?r7hq1f') format('woff'),
-      url('../icons/icomoon.svg?r7hq1f#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-  }
-  
-  [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: never;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-  
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .icon-facebook-with-circle:before {
-    content: "\e900";
-  }
-  .icon-instagram-with-circle:before {
-    content: "\e901";
-  }
-  .icon-linkedin-with-circle:before {
-    content: "\e902";
-  }
-  .icon-pinterest-with-circle:before {
-    content: "\e903";
-  }
-  .icon-twitter-with-circle:before {
-    content: "\e904";
-  }
-  .icon-calendar:before {
-    content: "\e905";
-  }
-  .icon-check:before {
-    content: "\e906";
-  }
-  .icon-chevron-down:before {
-    content: "\e907";
-  }
-  .icon-chevron-left:before {
-    content: "\e908";
-  }
-  .icon-chevron-right:before {
-    content: "\e909";
-  }
-  .icon-chevron-up:before {
-    content: "\e90a";
-  }
-  .icon-file-text:before {
-    content: "\e90b";
-  }
-  .icon-mail:before {
-    content: "\e90c";
-  }
-  .icon-map-pin:before {
-    content: "\e90d";
-  }
-  .icon-menu:before {
-    content: "\e90e";
-  }
-  .icon-minus:before {
-    content: "\e90f";
-  }
-  .icon-phone:before {
-    content: "\e910";
-  }
-  .icon-plus:before {
-    content: "\e911";
-  }
-  .icon-search:before {
-    content: "\e912";
-  }
-  .icon-tag:before {
-    content: "\e913";
-  }
-  .icon-user:before {
-    content: "\e914";
-  }
-  .icon-x:before {
-    content: "\e915";
-  }
-  .icon-image:before {
-    content: "\e916";
-  }
-  
 /**
   * Buttons
   */
@@ -446,16 +348,16 @@ input.wpcf7-not-valid,
     display: block;
 }
 
-    .page-header__nav {
+    .page-header__container {
         display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: center;
+        
     }
+    
 
     .logo {
-        display: inline-block;   
+        display: inline-block;  
         padding-top: 10px;
+        padding-bottom: 10px;
     }
 
 @media (min-width: 1025px) {
@@ -469,30 +371,44 @@ input.wpcf7-not-valid,
  * Navigation
  */
 
-.toggle-menu {  
-    border: none; 
-    display: block;
-    font-size: 30px;
-    font-weight: 700;
-    outline: none;
-    padding: 5px;
-    text-align: center; 
-    height: 36px;
-    width: 36px;
+
+.mainmenu {
+    display: block; 
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    z-index: 9999;
+
+    -webkit-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;    
 }
 
-.toggle-menu.toggle-menu--close .icon-menu:before {
-    content: "\e915"; 
-}
- 
+    .toggle-menu {  
+        border: 1px solid #000; 
+        display: block;
+        font-size: 16px;
+        font-weight: 700;
+        height: 36px;
+        width: 36px;
+        outline: none;
+        /*position: absolute;
+        right: 10px;
+        top: -42px;*/
+        text-align: center;
+        line-height: 16px;
+    }
+
+        .toggle-menu.icon-close .icon-menu:before {
+            content: "\e90f";
+        }
+
     .nav-primary {
-        background-color: #333; 
+        background-color: #333;
+        display: none;
         padding: 0;
-        margin: 0; 
-        width: 100%;
-        list-style-type: none; 
-        display: none;                     
-    } 
+    }
 
         .nav-primary .sub-menu-toggle {
             content: "";
@@ -521,14 +437,14 @@ input.wpcf7-not-valid,
         }
 
         .nav-primary li {
-            border-top: 1px solid #ccc; 
+            border-top: 1px solid #2e4776;
             position: relative;
             text-transform: uppercase;
-            
+             
         }
 
         .nav-primary a {
-            color: var(--color-tertiary);
+            color: #333;
             display: block;
             padding: 8px 10px 8px 15px;
             -webkit-transition: all .4s ease-in-out;
@@ -538,32 +454,58 @@ input.wpcf7-not-valid,
         }
 
         .nav-primary a:hover {
-            color: var(--color-secondary); 
+            opacity: 1;
+            color: #CD1B20;
         }
 
 
 
         @media(min-width: 1025px) {
-            .nav-primary { 
-                background-color: transparent;
-                display: block; 
-                width: auto;
-            } 
+
+            .mainmenu {
+                position: relative;
+                left: auto;
+                right: 0;
+                top: 0;
+                padding-left: 215px;
+            }
+
                 .nav-primary .sub-menu-toggle {
-                    color: var(--color-body);
+                    color: #A1B5DC;
                     font-size: 22px;
                     height: 50px;
                     line-height: 50px;
                 }
 
-                .nav-primary a {
-                    color: var(--color-primary);
+                .nav-primary {
+                    background-color: transparent;
+                    display: block;
+                    float: right;
+                    font-size: 13px;
+                    font-weight: 700;
                 }
 
                 .nav-primary li {
                     display: block;
                     float: left;
                     border-top: 0;
+                }
+                .nav-primary li a:before {
+                    background: none repeat scroll 0 0 transparent;
+                    bottom: 0;
+                    content: "";
+                    display: block;
+                    height: 2px;
+                    left: 50%;
+                    position: absolute;
+                    background: #fff;
+                    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                    width: 0;
+                }
+                .nav-primary li a.active:before,
+                .nav-primary li a:hover:before { 
+                    width: 100%; 
+                    left: 0; 
                 }
 
                 .nav-primary  > li > a {
@@ -606,21 +548,16 @@ input.wpcf7-not-valid,
     -webkit-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;   
-    padding: 0;
 }
     .nav-primary .sub-menu a {
         padding-left: 20px;
-        color: var(--color-tertiary)
-    }
-
-    .nav-primary .sub-menu a:hover {
-        color: var(--color-secondary);
+        color: #fff;
     }
 
 /* third level */
 
 .nav-primary .sub-menu ul {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .nav-primary .sub-menu ul a {
@@ -652,7 +589,7 @@ input.wpcf7-not-valid,
         }
 
         .nav-primary .sub-menu .menu-item-has-children:hover > .sub-menu-toggle {
-            color:var(--color-tertiary);
+            color: #A1B5DC;
         }
 
         .nav-primary .sub-menu li {
